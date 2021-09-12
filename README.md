@@ -68,3 +68,54 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+------------------------------
+
+# Project Name
+
+ **city Explorer**
+**Author**: **Dima Alabsi**
+**Version**: 1.0.0 
+
+## Overview
+***Probel Domain***
+
+***I will build a React application that uses the Axios library to make user-initiated reqeusts for data from a thrid-party API.***
+
+
+## Getting Started
+
+the user should write the link of deploying netlify on chrome for example ,The user will send a request to the server and the srever will responde to him/her with the data.
+
+## Architecture
+react bootstrap ,
+javascript,
+Axios
+
+## Change Log
+
+
+01-01-2001 4:59pm - 
+
+## Credit and Collaborations
+
+
+**Essam Omar**
+
+https://city-explorer-essam.netlify.app/
+
+
+------------------------
+Name of feature: Asynchronous code, and APIs
+
+
+Estimate of time needed to complete: _____
+
+Start time: _____
+
+Finish time: _____
+
+Actual time needed to complete: _____
+
+---------------------
+
