@@ -1,15 +1,23 @@
-import React, { Component } from 'react'
-
+import React, { Component } from 'react';
+import { Col } from 'react-bootstrap';
  class Location extends Component {
     render() {
         return (
-            <div>
-                       <h1>{this.props.display_name}</h1>
-                
-                <h2>{this.props.lat}/{this.props.lon}</h2>
+            <Col>
 
+                       <h3>{this.props.display_name}</h3>
                 
-            </div>
+                <h4>{this.props.lat} 
+                <br/>
+                {this.props.lon}</h4>
+
+                {/* <h4> <alert>
+                    oh 
+                   
+      }     
+                    </alert>
+                    {this.props.alertError}</h4> */}
+                </Col >
         )
     }
 }
