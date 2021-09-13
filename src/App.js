@@ -3,6 +3,7 @@ import Form from './components/Form';
 import Location from './components/Location';
 import axios from 'axios';
 import Header from './components/Header';
+import Weather from './components/Weather';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Alert } from 'react-bootstrap';
 // import { Row,col,container } from 'react-bootstrap';
@@ -17,7 +18,9 @@ class App extends Component {
       showData: false,
       mapShow: false,
       error: {},
-      errHandle: false
+      errHandle: false,
+      weatherData: [],
+
     }
   }
   handleLocation = (e) => {
@@ -50,8 +53,15 @@ class App extends Component {
     ).catch(err => this.setState({
       error: err.toString(), errHandle: true
     }))
+    .then  .then(() => {
+      axios.get(`http://${process.env.REACT_APP_BACKEND_URL}/weather?lat=${this.state.lat}&lon=${this.state.lon}&searchQuery=${this.state.city_name}`)
+    })
+    .then((res) => {
+      this.setState({
+        weatherData : res.data
+      });
+    });
 
-  }
   // alertError=()=>{
   //   this.setState({
   //     alert:true
@@ -59,6 +69,7 @@ class App extends Component {
   //     }     
 
   render() {
+
     return (
       <>
         <Header />
@@ -79,12 +90,16 @@ class App extends Component {
 }
        
 
+<Weather 
+  city_name={this.state.city_name}
+weatherData={this.state.weatherData}/>
 
       </>
-    )
+    );
   }
-}
 
+  
+}
 export default App
 
 
