@@ -4,6 +4,7 @@ import Location from './components/Location';
 import axios from 'axios';
 import Header from './components/Header';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { Alert } from 'react-bootstrap';
 // import { Row,col,container } from 'react-bootstrap';
 
  class App extends Component {
@@ -20,11 +21,18 @@ import 'bootstrap/dist/css/bootstrap.min.css';
     }
   }
   handleLocation=(e)=>{
+   
    let  display_name=e.target.value;
-   this.setState({
+   if (display_name===''){
+    this.setState({
+      alert:true
+    })
+  }
+  else
+ {  this.setState({
    display_name:display_name
    })
-  }
+  }}
   handleSubmit=(e)=>{
    e.preventDefault();
    let config={
@@ -47,17 +55,17 @@ import 'bootstrap/dist/css/bootstrap.min.css';
   )
   
   }
-  alertError=()=>{
-    this.setState({
-      alert:true
-    })
-      }     
+  // alertError=()=>{
+  //   this.setState({
+  //     alert:true
+  //   })
+  //     }     
  
   render() {
     return (
   <>
   <Header/>
-         <Form handleLocation={this.handleLocation} handleSubmit={this.handleSubmit}/>
+         <Form handleLocation={this.handleLocation} handleSubmit={this.handleSubmit} />
      <Location display_name={this.state.display_name}
                  lat={this.state.lat}
                  lon={this.state.lon}  alertError={this.alertError}/>
@@ -68,9 +76,16 @@ import 'bootstrap/dist/css/bootstrap.min.css';
    width='300px' height='300px'
     alt="map"/>
 
-    {/* <>
-    <alert>Sorry, cannot found</alert>
-    </> */}
+   {this.state.alert &&
+   <>
+   <Alert>
+
+     Sorry. the location does not FOUND
+   </Alert>
+   </>
+   
+   
+   }
     
     </>
     )
