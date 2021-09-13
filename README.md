@@ -109,13 +109,13 @@ https://city-explorer-essam.netlify.app/
 Name of feature: Asynchronous code, and APIs
 
 
-Estimate of time needed to complete: _____
+Estimate of time needed to complete: 5-6 hours
 
-Start time: _____
+Start time: 3:00 pm
 
-Finish time: _____
+Finish time: 7:00 pm
 
-Actual time needed to complete: _____
+Actual time needed to complete: 4 hours
 
 ---------------------
 
