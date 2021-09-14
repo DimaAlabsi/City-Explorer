@@ -54,7 +54,6 @@ class App extends Component {
       error: err.toString(), errHandle: true
     }))
      .then(() => {
-      // http://localhost:8000/weather?lon=35.91&lat=31.95&searchQuery=Amman
       let locationName = this.state.display_name.split(',')[0];
 
       axios.get(`http://${process.env.REACT_APP_BACKEND_URL}/weather?lat=${this.state.lat}&lon=${this.state.lon}&searchQuery=${locationName}`)
