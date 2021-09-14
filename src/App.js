@@ -53,20 +53,32 @@ class App extends Component {
     ).catch(err => this.setState({
       error: err.toString(), errHandle: true
     }))
-    .then  .then(() => {
-      axios.get(`http://${process.env.REACT_APP_BACKEND_URL}/weather?lat=${this.state.lat}&lon=${this.state.lon}&searchQuery=${this.state.city_name}`)
+     .then(() => {
+      // http://localhost:8000/weather?lon=35.91&lat=31.95&searchQuery=Amman
+      let locationName = this.state.display_name.split(',')[0];
+
+      axios.get(`http://${process.env.REACT_APP_BACKEND_URL}/weather?lat=${this.state.lat}&lon=${this.state.lon}&searchQuery=${locationName}`)
+      .then((res) => {
+
+        console.log(res)
+  
+        this.setState({
+          weatherData : res.data
+        });
+        
+      })
+      // .catch(err => this.setState({
+      //   error: err.toString(), errHandle: true
+      // }))
+      
     })
-    .then((res) => {
-      this.setState({
-        weatherData : res.data
-      });
-    });
+    
 
   // alertError=()=>{
   //   this.setState({
   //     alert:true
   //   })
-  //     }     
+      }     
 
   render() {
 
@@ -77,7 +89,6 @@ class App extends Component {
         <Location display_name={this.state.display_name}
           lat={this.state.lat}
           lon={this.state.lon} />
-
         <img src={`https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_LOCATIONIQ_API_KEY}&center=${this.state.lat},${this.state.lon}&zoom=1-5`}
           style={{ width: 550 }}
           variant="top"
@@ -91,7 +102,8 @@ class App extends Component {
        
 
 <Weather 
-  city_name={this.state.city_name}
+
+  display_name={this.state.display_name}
 weatherData={this.state.weatherData}/>
 
       </>

@@ -119,3 +119,12 @@ Actual time needed to complete: 4 hours
 
 ---------------------
 
+Name of feature:adding weather component
+
+Estimate of time needed to complete: 30 minutes
+
+Start time: 9:00 pm
+
+Finish time: 9:20 pm
+
+Actual time needed to complete: 20 minutes

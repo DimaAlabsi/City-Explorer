@@ -6,13 +6,16 @@ export class Weather extends Component {
         return (
             <>
                 <Accordion>
-  <Accordion.Item eventKey="0">
-    <Accordion.Header>{this.props.city_name}</Accordion.Header>
+  <Accordion.Item eventKey="0" >
+    <Accordion.Header > Check the  Weather </Accordion.Header>
     <Accordion.Body>
+
+      <h1>{this.props.display_name}</h1>
+      <br/>
               {this.props.weatherData.map((i) => {
                 return (
                     <>
-                    <h1>Date</h1>
+                    <h3>Date</h3>
                     <p> {i.date}</p>
                   <h3> Description</h3>
                         
