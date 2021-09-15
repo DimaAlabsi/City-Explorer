@@ -138,3 +138,16 @@ Start time: 2:00pm
 Finish time:5:00pm
 
 Actual time needed to complete: 3 hours
+
+
+-------------------------
+
+Name of feature: Refactor: Componentize the front-end codebase.
+
+Estimate of time needed to complete: 1 hour
+
+Start time: 6:00pm
+
+Finish time: 6:45 pm
+
+Actual time needed to complete: 45 minutes
