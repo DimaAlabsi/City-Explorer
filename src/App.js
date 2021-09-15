@@ -56,13 +56,22 @@ class App extends Component {
      .then(() => {
       let locationName = this.state.display_name.split(',')[0];
 
-      axios.get(`http://${process.env.REACT_APP_BACKEND_URL}/weather?lat=${this.state.lat}&lon=${this.state.lon}&searchQuery=${locationName}`)
-      .then((res) => {
+      let config = {
+        method: "GET",
+        baseURL: `http://${process.env.REACT_APP_BACKEND_URL}/weather?lat=${this.state.lat}&lon=${this.state.lon}&key=${process.env.WEATHER_API_KEY}&city=${locationName}`
+      }
+      console.log(  `http://${process.env.REACT_APP_BACKEND_URL}/weather?lat=${this.state.lat}&lon=${this.state.lon}&key=${process.env.WEATHER_API_KEY}&city=${locationName}`
+      )
+      // https://api.weatherbit.io/v2.0/current?lat=${lat}&lon=${lon}&key=${process.env.WEATHER_API_KEY}&city=${city_name}
+      // axios.get(`http://${process.env.REACT_APP_BACKEND_URL}/weather?lat=${this.state.lat}&lon=${this.state.lon}&searchQuery=${locationName}`)
+      
+      
+      axios(config).then((res) => {
 
         console.log(res)
-  
-        this.setState({
-          weatherData : res.data
+          this.setState({
+            
+             weatherData : res.data
         });
         
       })
