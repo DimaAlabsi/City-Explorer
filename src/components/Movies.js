@@ -16,23 +16,25 @@ export class Movies extends Component {
               {this.props.moviesData.map((i) => {
                 return (
                     <>
-       
-  
-i.backdrop_path
-                    <h3>Title</h3>
+                          <h3>Title</h3>
                     <p> {i.title}</p>
                   <h3> OverView</h3>
                         
                    <p>  { i.overview}</p>
                    <h3> released date</h3>
                         
-                   <p>  { i.release_date}</p>
+                   <p>  { i.date}</p>
                    <h3>Vote Average</h3>
-                    <p> {i.vote_average}</p>
+                    <p> {i.voteAvg}</p>
                     <h3>Vote Count</h3>
-                    <p> {i.vote_count}</p>
+                    <p> {i.votCount}</p>
                                <br/>
-                    <p> {i.backdrop_path}</p>
+                               <img src ={`https:/${i.poster_path}`}
+   style={{ width: 550 }}
+   variant="top"
+   width='300px' height='300px'
+   alt="pic" />
+                    <p> {i.poster_path}</p>
                   </>
                 );
               })}
