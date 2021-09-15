@@ -6,6 +6,7 @@ import Header from './components/Header';
 import Weather from './components/Weather';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Alert } from 'react-bootstrap';
+import Movies from './components/Movies';
 // import { Row,col,container } from 'react-bootstrap';
 
 class App extends Component {
@@ -20,6 +21,7 @@ class App extends Component {
       error: {},
       errHandle: false,
       weatherData: [],
+      moviesData:[]
 
     }
   }
@@ -60,32 +62,39 @@ class App extends Component {
         method: "GET",
         baseURL: `http://${process.env.REACT_APP_BACKEND_URL}/weather?lat=${this.state.lat}&lon=${this.state.lon}&key=${process.env.WEATHER_API_KEY}&city=${locationName}`
       }
-      console.log(  `http://${process.env.REACT_APP_BACKEND_URL}/weather?lat=${this.state.lat}&lon=${this.state.lon}&key=${process.env.WEATHER_API_KEY}&city=${locationName}`
+
+      console.log( `http://${process.env.REACT_APP_BACKEND_URL}/weather?lat=${this.state.lat}&lon=${this.state.lon}&key=${process.env.WEATHER_API_KEY}&city=${locationName}`
       )
-      // https://api.weatherbit.io/v2.0/current?lat=${lat}&lon=${lon}&key=${process.env.WEATHER_API_KEY}&city=${city_name}
-      // axios.get(`http://${process.env.REACT_APP_BACKEND_URL}/weather?lat=${this.state.lat}&lon=${this.state.lon}&searchQuery=${locationName}`)
-      
-      
+      axios(config).then((res) => {
+
+        // console.log(res)
+          this.setState({
+            
+             weatherData : res.data
+        });
+          })
+     })
+     .then(() => {
+      let locationName = this.state.display_name.split(',')[0];
+
+      let config = {
+        method: "GET",
+        baseURL: `http://${process.env.REACT_APP_BACKEND_URL}/movies?query=${locationName}` 
+           }
+     console.log(`https://api.themoviedb.org/3/search/movie?api_key=${process.env.MOVIE_API_KEY}&query=${this.state.display_name}` )
       axios(config).then((res) => {
 
         console.log(res)
           this.setState({
             
-             weatherData : res.data
+             moviesData : res.data
         });
-        
-      })
-      // .catch(err => this.setState({
-      //   error: err.toString(), errHandle: true
-      // }))
-      
-    })
+          })
+     })
+
     
 
-  // alertError=()=>{
-  //   this.setState({
-  //     alert:true
-  //   })
+  
       }     
 
   render() {
@@ -113,6 +122,12 @@ class App extends Component {
 
   display_name={this.state.display_name}
 weatherData={this.state.weatherData}/>
+
+<Movies
+display_name={this.state.display_name}
+moviesData={this.state.moviesData}
+/>
+
 
       </>
     );
