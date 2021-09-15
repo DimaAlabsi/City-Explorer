@@ -29,6 +29,7 @@ export class Movies extends Component {
                     <h3>Vote Count</h3>
                     <p> {i.votCount}</p>
                                <br/>
+                               <br/>
                   </>
                 );
               })}

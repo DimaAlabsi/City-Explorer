@@ -128,3 +128,13 @@ Start time: 9:00 pm
 Finish time: 9:20 pm
 
 Actual time needed to complete: 20 minutes
+
+---------------------
+Name of feature:  show live weather and movie data in response to City Explorer searches (lab08)
+Estimate of time needed to complete: 4 hours
+
+Start time: 2:00pm
+
+Finish time:5:00pm
+
+Actual time needed to complete: 3 hours
