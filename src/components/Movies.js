@@ -29,12 +29,6 @@ export class Movies extends Component {
                     <h3>Vote Count</h3>
                     <p> {i.votCount}</p>
                                <br/>
-                               <img src ={`https:/${i.poster_path}`}
-   style={{ width: 550 }}
-   variant="top"
-   width='300px' height='300px'
-   alt="pic" />
-                    <p> {i.poster_path}</p>
                   </>
                 );
               })}
