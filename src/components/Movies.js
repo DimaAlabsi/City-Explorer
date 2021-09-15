@@ -29,6 +29,12 @@ export class Movies extends Component {
                     <h3>Vote Count</h3>
                     <p> {i.votCount}</p>
                                <br/>
+                               <img src={`https://image.tmdb.org/t/p/original/${i.img}`} alt={i.title} width='200' height='180'></img>
+
+
+
+
+
                                <br/>
                   </>
                 );
