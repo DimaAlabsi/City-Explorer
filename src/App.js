@@ -67,7 +67,6 @@ class App extends Component {
       )
       axios(config).then((res) => {
 
-        // console.log(res)
           this.setState({
             
              weatherData : res.data
