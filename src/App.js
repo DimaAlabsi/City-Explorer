@@ -60,10 +60,10 @@ class App extends Component {
 
       let config = {
         method: "GET",
-        baseURL: `http://${process.env.REACT_APP_BACKEND_URL}/weather?lat=${this.state.lat}&lon=${this.state.lon}&key=${process.env.WEATHER_API_KEY}&city=${locationName}`
+        baseURL: `${process.env.REACT_APP_BACKEND_URL}/weather?lat=${this.state.lat}&lon=${this.state.lon}&key=${process.env.WEATHER_API_KEY}&city=${locationName}`
       }
 
-      console.log( `http://${process.env.REACT_APP_BACKEND_URL}/weather?lat=${this.state.lat}&lon=${this.state.lon}&key=${process.env.WEATHER_API_KEY}&city=${locationName}`
+      console.log( `${process.env.REACT_APP_BACKEND_URL}/weather?lat=${this.state.lat}&lon=${this.state.lon}&key=${process.env.WEATHER_API_KEY}&city=${locationName}`
       )
       axios(config).then((res) => {
 
@@ -78,7 +78,7 @@ class App extends Component {
 
       let config = {
         method: "GET",
-        baseURL: `http://${process.env.REACT_APP_BACKEND_URL}/movies?query=${locationName}` 
+        baseURL: `${process.env.REACT_APP_BACKEND_URL}/movies?query=${locationName}` 
            }
      console.log(`https://api.themoviedb.org/3/search/movie?api_key=${process.env.MOVIE_API_KEY}&query=${this.state.display_name}` )
       axios(config).then((res) => {
